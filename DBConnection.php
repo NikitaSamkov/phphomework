@@ -29,7 +29,10 @@ class DBConnection
     }
 
     public function GetColumns($table, $targetColumns, $column, $value) {
-        $columns = implode(', ', $targetColumns);
+        $columns = $targetColumns;
+        if(gettype($targetColumns) == 'array') {
+            $columns = implode(', ', $targetColumns);
+        }
         $result = $this->Query("SELECT $columns FROM $table WHERE $column='$value'");
         return $result;
     }

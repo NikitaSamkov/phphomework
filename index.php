@@ -12,9 +12,10 @@ session_start();
 
 <body>
 <?php if(isset($_SESSION['user'])): ?>
-<p>Здравствуйте, <?=$_SESSION['user']['login']?></p>
+<p>Здравствуйте, <?=$_SESSION['user']['firstname']?></p>
 <?php endif; ?>
 <a href="register.php">Зарегистрироваться</a>
+<a href="login.php">Войти</a>
 </body>
 
 </html>
