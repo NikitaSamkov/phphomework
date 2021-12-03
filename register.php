@@ -1,13 +1,11 @@
 <?php
 session_start();
 
-require 'DBConnection.php';
-$conn = new DBConnection('phphomework', 'php_samkov');
-
 if(isset($_SESSION['reg-errors'])) {
     foreach($_SESSION['reg-errors'] as $error) {
         echo $error."<br>";
     }
+    unset($_SESSION['reg-errors']);
 }
 ?>
 
