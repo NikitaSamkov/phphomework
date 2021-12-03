@@ -20,19 +20,19 @@ if(isset($_SESSION['reg-errors'])) {
 <body>
 <form action="SignUp.php" method="POST">
     <label for="login">Логин:<br></label>
-    <input type="text" name="login" id="login"><br>
+    <input type="text" name="login" id="login" required><br>
 
     <label for="email">Email:<br></label>
-    <input type="email" name="email" id="email"><br>
+    <input type="email" name="email" id="email" required><br>
 
     <label for="firstname">Имя:<br></label>
-    <input type="text" name="firstname" id="firstname"><br>
+    <input type="text" name="firstname" id="firstname" required><br>
 
     <label for="lastname">Фамилия:<br></label>
-    <input type="text" name="lastname" id="lastname"><br>
+    <input type="text" name="lastname" id="lastname" required><br>
 
     <label for="password">Пароль:<br></label>
-    <input type="password" name="password" id="password"><br>
+    <input type="password" name="password" id="password" required><br>
 
     <label><input type="checkbox" name="admin" id="admin"> я являюсь администратором:<br></label>
 

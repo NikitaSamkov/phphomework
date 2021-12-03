@@ -8,16 +8,20 @@ session_start();
 <head>
     <meta charset='utf-8'>
     <title>Добро пожаловать!</title>
+    <link type="text/css" rel="stylesheet" href="styles.css">
 </head>
 
 <body>
 <header>
-    <?php if(isset($_SESSION['user'])): ?>
-        <p>Здравствуйте, <?=$_SESSION['user']['firstname']?></p>
-        <a href="SignOut.php">Выйти</a>
-    <?php else: ?>
-        <a href="login.php">Войти</a>
-    <?php endif; ?>
+    <img class="logo" src="source/img/logo.png">
+    <div class="auth">
+        <?php if(isset($_SESSION['user'])): ?>
+            <p>Здравствуйте, <?=$_SESSION['user']['firstname']?></p>
+            <a href="auth/SignOut.php"><div class="authBtn">Выйти</div></a>
+        <?php else: ?>
+            <a href="auth/login.php"><div class="authBtn">Войти</div></a>
+        <?php endif; ?>
+    </div>
 </header>
 
 </body>

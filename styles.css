@@ -1,0 +1,52 @@
+@font-face {
+    font-family: Consolas;
+    src: url("source/fonts/consola.ttf");
+}
+
+body {
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    width: 100%;
+    padding: 10px;
+    background: #FFE600;
+    border-bottom: 3px solid #CECECE;
+}
+
+.logo {
+    width: 300px;
+    height: 140px;
+}
+
+.auth {
+    display: flex;
+    justify-content: flex-end;
+    flex-wrap: wrap;
+    align-items: center;
+    font-family: Consolas, serif;
+    font-size: 25px;
+    color: black;
+}
+
+header a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.authBtn {
+    margin-right: 30px;
+    width: 200px;
+    height: 60px;
+    background: #FFFFFF;
+    border: 5px solid #CECECE;
+    box-sizing: border-box;
+    border-radius: 45px;
+    text-align: center;
+    padding: 10px 0;
+}

@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-require 'DBConnection.php';
+require '../data/DBConnection.php';
 $conn = new DBConnection('phphomework', 'php_samkov');
 
 if(isset($_POST['submit'])) {
@@ -28,13 +28,21 @@ if(isset($_POST['submit'])) {
         $err[] = "Неверный адрес электронной почты";
     }
 
+    if(strlen($firstname) > 30) {
+        $err[] = "Имя должен быть не длиннее 30 символов";
+    }
+
+    if(strlen($lastname) > 30) {
+        $err[] = "Фамилия должена быть не длиннее 30 символов";
+    }
+
     if(count($err) == 0) {
         $admin = $_POST['admin'] == 'on' ? 'TRUE' : 'FALSE';
         $password = md5(md5(trim($_POST['password'])));
         $query = "INSERT INTO users VALUES (NULL, '$login', '$email', '$password', '$firstname', '$lastname', $admin)";
         $conn->Query($query);
         $_SESSION['user'] = $conn->GetRow('users', 'login', $login)[0];
-        header("Location: index.php");
+        header("Location: ../index.php");
         exit();
     }
     else {
