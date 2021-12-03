@@ -14,9 +14,20 @@ class DBConnection
         }
     }
 
-    public function Query($query)
+    public function Query($query, $mode=PDO::FETCH_ASSOC)
     {
-        return $this->connection->query($query)->fetchAll(PDO::FETCH_ASSOC);
+        return $this->connection->query($query)->fetchAll($mode);
+    }
+
+    public function GetTable($table)
+    {
+        return $this->Query("SELECT * FROM $table");
+    }
+
+    public function GetOrdered($table, $column, $descending=false)
+    {
+        $mode = $descending ? 'DESC' : '';
+        return $this->Query("SELECT * FROM $table ORDER BY $column $mode");
     }
 
     public function IsExists($table, $column, $value)
