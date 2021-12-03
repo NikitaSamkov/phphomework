@@ -8,10 +8,36 @@ if (isset($_SESSION['login-errors'])) {
     unset($_SESSION['login-errors']);
 }
 ?>
+<!DOCTYPE html>
+<html lang='ru'>
 
-<form action="SignIn.php" method="POST">
-    Логин <input name="login" type="text" required><br>
-    Пароль <input name="password" type="password" required><br>
-    <input name="submit" type="submit" value="Войти">
-</form>
-<a href="register.php">Зарегистрироваться</a>
+<head>
+    <meta charset='utf-8'>
+    <title>Войти в систему</title>
+    <link rel="stylesheet" type="text/css" href="auth.css">
+</head>
+
+<body>
+<div class="auth">
+    <?php require 'header.php'?>
+    <form class="auth-form" action="SignIn.php" method="POST">
+        <label class="auth-input-field">
+            Логин:<br>
+            <input name="login" type="text" required><br>
+        </label>
+        <label class="auth-input-field">
+            Пароль:<br>
+            <input name="password" type="password" required><br>
+        </label>
+        <button class="submit-btn" name="submit" type="submit" value="">
+            <img height="50" src="../source/img/Check.svg">
+        </button>
+        <p>
+            Нет аккаунта?<br>
+            <a class="reg-btn" href="register.php">Зарегистрироваться</a>
+        </p>
+    </form>
+</div>
+</body>
+
+</html>

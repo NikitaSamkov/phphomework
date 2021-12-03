@@ -1,5 +1,5 @@
 <?php
 ?>
 <div class="auth-header">
-    <img src="../source/img/logo.png">
+    <a href="../index.php"><img src="../source/img/logo.png"></a>
 </div>
