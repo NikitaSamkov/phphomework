@@ -1,12 +1,5 @@
 <?php
 session_start();
-
-if(isset($_SESSION['reg-errors'])) {
-    foreach($_SESSION['reg-errors'] as $error) {
-        echo $error."<br>";
-    }
-    unset($_SESSION['reg-errors']);
-}
 ?>
 
 <!DOCTYPE html>
@@ -15,31 +8,42 @@ if(isset($_SESSION['reg-errors'])) {
 <head>
     <meta charset='utf-8'>
     <title>Регистрация</title>
-    <link rel="stylesheet" type="text/css" href="../styles.css">
+    <link rel="stylesheet" type="text/css" href="auth.css">
 </head>
 
 <body>
 <div class="auth">
     <?php require 'header.php'?>
     <form class="auth-form" action="SignUp.php" method="POST">
+        <?php if (isset($_SESSION['reg-errors'])): ?>
+            <?php foreach($_SESSION['reg-errors'] as $error): ?>
+                <div class="auth-error">
+                    <img src="../source/img/error.svg">
+                    <?=$error?>
+                </div>
+            <?php
+                endforeach;
+                unset($_SESSION['reg-errors']);
+            ?>
+        <?php endif; ?>
         <div class="auth-input-field">
-            <label for="login">Логин:<br></label>
+            <label for="login">Введите ваш логин:<br></label>
             <input type="text" name="login" id="login" required><br>
         </div>
         <div class="auth-input-field">
-            <label for="email">Email:<br></label>
+            <label for="email">Введите ваш email:<br></label>
             <input type="email" name="email" id="email" required><br>
         </div>
         <div class="auth-input-field">
-            <label for="firstname">Имя:<br></label>
+            <label for="firstname">Ваше имя:<br></label>
             <input type="text" name="firstname" id="firstname" required><br>
         </div>
         <div class="auth-input-field">
-            <label for="lastname">Фамилия:<br></label>
+            <label for="lastname">Ваша фамилия:<br></label>
             <input type="text" name="lastname" id="lastname" required><br>
         </div>
         <div class="auth-input-field">
-            <label for="password">Пароль:<br></label>
+            <label for="password">Введите пароль:<br></label>
             <input type="password" name="password" id="password" required><br>
         </div>
         <div class="checkbox-submit">

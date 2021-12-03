@@ -1,0 +1,116 @@
+* {
+    box-sizing: border-box;
+}
+
+@font-face {
+    font-family: Consolas;
+    src: url("../source/fonts/consola.ttf");
+}
+
+body {
+    margin: 0;
+    padding: 0;
+}
+
+.auth {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.auth-header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    width: 100%;
+    background-color: #FFE600;
+    margin: 50px 0;
+}
+
+.auth-header img {
+    height: 140px;
+    width: 300px;
+}
+
+.auth-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: left;
+    justify-content: space-around;
+    width: 500px;
+    background: #FFFFFF;
+    border: 5px solid #CECECE;
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 45px;
+    padding: 50px;
+    box-sizing: border-box;
+}
+
+.auth-input-field {
+    margin-bottom: 30px;
+}
+
+.auth-input-field input,
+.auth-input-field {
+    text-align: left;
+    font-family: Consolas, serif;
+    font-size: 25px;
+}
+
+.auth-input-field input {
+    height: 40px;
+    width: 400px;
+    padding: 10px;
+    background: #CECECE;
+    border: 2px solid #000000;
+    box-sizing: border-box;
+    border-radius: 15px;
+}
+
+.checkbox-submit {
+    display: flex;
+    justify-content: space-between;
+    width: 400px;
+    font-family: Consolas, serif;
+    font-size: 20px;
+    align-items: center;
+}
+
+.checkbox-submit label {
+    display: flex;
+    align-items: center;
+}
+
+.checkbox-submit label input {
+    width: 30px;
+    height: 30px;
+}
+
+.checkbox-submit button {
+    width: 120px;
+    height: 60px;
+    background: #FFE600;
+    border: 3px solid #000000;
+    box-sizing: border-box;
+    border-radius: 15px;
+    cursor: pointer;
+}
+
+.auth-error {
+    display: flex;
+    padding: 20px;
+    width: 400px;
+    background: #FFBDBD;border: 3px solid #FF0000;
+    border-radius: 15px;
+    color: #FF0000;
+    margin-bottom: 30px;
+}
+
+.auth-error img {
+    width: 40px;
+    height: 40px;
+}
+
