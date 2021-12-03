@@ -14,12 +14,12 @@ session_start();
 <body>
 <header>
     <img class="logo" src="source/img/logo.png">
-    <div class="auth">
+    <div class="auth-menu">
         <?php if(isset($_SESSION['user'])): ?>
             <p>Здравствуйте, <?=$_SESSION['user']['firstname']?></p>
-            <a href="auth/SignOut.php"><div class="authBtn">Выйти</div></a>
+            <a href="auth/SignOut.php"><div class="auth-btn">Выйти</div></a>
         <?php else: ?>
-            <a href="auth/login.php"><div class="authBtn">Войти</div></a>
+            <a href="auth/login.php"><div class="auth-btn">Войти</div></a>
         <?php endif; ?>
     </div>
 </header>
