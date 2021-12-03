@@ -18,7 +18,6 @@ session_start();
     <?php else: ?>
         <a href="login.php">Войти</a>
     <?php endif; ?>
-    <a href="register.php">Зарегистрироваться</a>
 </header>
 
 </body>

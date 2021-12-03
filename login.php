@@ -14,3 +14,4 @@ if (isset($_SESSION['login-errors'])) {
     Пароль <input name="password" type="password"><br>
     <input name="submit" type="submit" value="Войти">
 </form>
+<a href="register.php">Зарегистрироваться</a>
