@@ -3,11 +3,11 @@ session_start();
 
 require 'data/DBConnection.php';
 $conn = new DBConnection('phphomework', 'php_samkov');
-$query = "SELECT tasks.*, w.login, w.firstname, w.lastname, a.login, a.firstname, a.lastname FROM tasks 
+$query = "SELECT tasks.*, w.login as w_login, w.firstname as w_fn, w.lastname as w_ln, a.login as a_login, a.firstname as a_fn, a.lastname as a_ln FROM tasks 
     INNER JOIN users w on tasks.worker_id = w.id 
     INNER JOIN users a on tasks.admin_id = a.id
     ORDER BY created_at DESC";
-$tasks = $conn->Query($query, PDO::FETCH_NAMED);
+$tasks = $conn->Query($query, PDO::FETCH_UNIQUE);
 ?>
 
 <!DOCTYPE html>
@@ -34,28 +34,43 @@ $tasks = $conn->Query($query, PDO::FETCH_NAMED);
 </header>
 
 <main>
-    <div class="main-space">
-        <div class="tasks">
-            <?php foreach ($tasks as $task): ?>
-                <button class="task" id="<?=$task['id']?>">
-                    <div class="task-info">
-                        <div class="task-top-info">
-                            <div class="task-name"><?=$task['task_name']?></div>
-                            <div class="task-worker">Для: <?=$task['login'][0]?></div>
-                        </div>
-                        <div class="task-description"><?=$task['task_desc']?></div>
+    <div class="tasks">
+        <?php foreach ($tasks as $id => $task): ?>
+            <button class="task" id="<?=$id?>">
+                <div class="task-info">
+                    <div class="task-top-info">
+                        <div class="task-name"><?=$task['task_name']?></div>
+                        <div class="task-worker">Для: <?=$task['w_login']?></div>
                     </div>
-                    <div class="task-progress"><?=$task['status']?>%</div>
-                </button>
-            <?php endforeach; ?>
-        </div>
-
-        <div class="info hidden">
-
-        </div>
+                    <div class="task-description"><?=$task['task_desc']?></div>
+                </div>
+                <div class="task-progress"><?=$task['status']?>%</div>
+            </button>
+        <?php endforeach; ?>
     </div>
 </main>
+<div class="info-tab hidden">
+    <div class="info-tab-content">
+        <div class="info-tab-task">
+            <ul class="task-details">
+                <li id="name">
+                    <b>Название задачи:</b><br>
+                    <div class="content"></div>
+                </li>
+                <li id="desc">
+                    <b>Описание:</b><br>
+                    <div class="content"></div>
+                </li>
+            </ul>
+        </div>
+        <button class="close-btn"><img width="40" src="source/img/Cross.svg"></button>
+    </div>
+</div>
 
+<script>
+    let tasksData = <?php echo json_encode($tasks); ?>;
+</script>
+<script src="info-tab.js"></script>
 </body>
 
 </html>
