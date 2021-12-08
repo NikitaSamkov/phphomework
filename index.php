@@ -61,6 +61,10 @@ $tasks = $conn->Query($query, PDO::FETCH_UNIQUE);
                     <b>Описание:</b><br>
                     <div class="content"></div>
                 </li>
+                <li id="progress">
+                    <b>Прогресс:</b><br>
+                    <div class="content"></div>
+                </li>
             </ul>
         </div>
         <button class="close-btn"><img width="40" src="source/img/Cross.svg"></button>

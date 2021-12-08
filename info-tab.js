@@ -18,6 +18,20 @@ for(let task of tasks) {
                 case 'desc':
                     content.textContent = tasksData[task.id]['task_desc'];
                     break;
+                case 'progress':
+                    let progress = parseInt(tasksData[task.id]['status']);
+                    let status = 'Еще не начата';
+                    if (progress > 0 && progress < 100) {
+                        status = 'В процессе'
+                    }
+                    if (progress === 100) {
+                        status = 'Готово'
+                    }
+                    content.textContent = status + ' (' + progress + '%)';
+                    let green = 255 * (parseInt(progress / 51) * (1 - progress / 50) + progress / 50)
+                    let red = 255 * (1 - (progress - 50) / 50 * parseInt(progress / 51))
+                    content.style.backgroundColor = 'rgb(' + red + ',' + green + ',0)';
+                    break;
                 default:
                     content.textContent = 'НЕ НАЙДЕНО :(';
                     break;
