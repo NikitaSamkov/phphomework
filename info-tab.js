@@ -1,9 +1,14 @@
+function formatDate (date) {
+    let ruDateFormat = new Intl.DateTimeFormat("ru").format;
+    return ruDateFormat(date);
+}
+
 let infoTab = document.querySelector('.info-tab');
 let tasks = document.querySelectorAll('.task');
 let taskList = document.querySelector('.tasks');
 let infoTabClose = infoTab.querySelector('.close-btn');
 let taskDetails = infoTab.querySelector('.task-details').querySelectorAll('li');
-console.log(tasksData);
+
 for(let task of tasks) {
     task.onclick = function () {
         infoTab.classList.remove('hidden');
@@ -31,6 +36,23 @@ for(let task of tasks) {
                     let green = 255 * (parseInt(progress / 51) * (1 - progress / 50) + progress / 50)
                     let red = 255 * (1 - (progress - 50) / 50 * parseInt(progress / 51))
                     content.style.backgroundColor = 'rgb(' + red + ',' + green + ',0)';
+                    break;
+                case 'worker':
+                    content.textContent = tasksData[task.id]['w_fn'] + ' ' + tasksData[task.id]['w_ln'] + ' (' + tasksData[task.id]['w_login'] + ')';
+                    break;
+                case 'admin':
+                    content.textContent = tasksData[task.id]['a_fn'] + ' ' + tasksData[task.id]['a_ln'] + ' (' + tasksData[task.id]['a_login'] + ')';
+                    break;
+                case 'created_at':
+                    content.textContent = formatDate(Date.parse(tasksData[task.id]['created_at']));
+                    break;
+                case 'finished_at':
+                    if (tasksData[task.id]['finished_at'] === null) {
+                        detail.classList.add('hidden');
+                    } else {
+                        detail.classList.remove('hidden');
+                        content.textContent = formatDate(Date.parse(tasksData[task.id]['finished_at']));
+                    }
                     break;
                 default:
                     content.textContent = 'НЕ НАЙДЕНО :(';
