@@ -64,13 +64,12 @@
     border-left: 3px solid #CECECE;
     background-color: white;
     width: 30vw;
-    height: 100vh;
+    height: calc(100vh - 170px);
     padding: 0 10px;
     left: 70vw;
     top: 170px;
-    overflow-y: hidden;
-    overscroll-behavior: contain;
 }
+
 
 .info-tab-content {
     display: flex;
@@ -79,6 +78,13 @@
 
 .info-tab-task {
     flex-grow: 1;
+    height: calc(100vh - 170px);
+    overflow-y: scroll;
+    overscroll-behavior: contain;
+}
+
+.info-tab-task::-webkit-scrollbar {
+    width: 0;
 }
 
 .info-tab .close-btn {
