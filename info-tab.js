@@ -9,7 +9,18 @@ let taskList = document.querySelector('.tasks');
 let infoTabClose = infoTab.querySelector('.close-btn');
 let taskDetails = infoTab.querySelector('.task-details').querySelectorAll('li');
 
+let taskNameMaxChars = 30;
+let taskDescMaxChars = 80;
+
 for(let task of tasks) {
+    let name = task.querySelector('.task-name');
+    let desc = task.querySelector('.task-description');
+    if (name.textContent.length >= taskNameMaxChars) {
+        name.textContent = name.textContent.substr(0, taskNameMaxChars - 3) + '...';
+    }
+    if (desc.textContent.length >= taskDescMaxChars) {
+        desc.textContent = desc.textContent.substr(0, taskDescMaxChars - 3) + '...';
+    }
     task.onclick = function () {
         infoTab.classList.remove('hidden');
         taskList.style.width = '70%';

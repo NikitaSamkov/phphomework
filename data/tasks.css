@@ -6,10 +6,17 @@
     width: 100%;
 }
 
+.task,
+.task-details {
+    font-size: 20px;
+    font-family: Consolas, serif;
+}
+
 .task {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    text-align: left;
     background: #F2F2F2;
     border: 5px solid #CECECE;
     box-sizing: border-box;
@@ -17,8 +24,7 @@
     padding: 20px 40px;
     margin: 0 20px 20px 20px;
     height: 130px;
-    font-size: 20px;
-    font-family: Consolas, serif;
+    word-break: break-word;
 }
 
 .task:hover {
@@ -50,6 +56,7 @@
     margin-left: 20px;
     font-size: 50px;
     border-left: 5px solid #CECECE;
+    word-break: normal;
 }
 
 .info-tab {
@@ -76,6 +83,18 @@
 
 .info-tab .close-btn {
     background: #FFFFFF;
+    min-width: 40px;
     padding: 0;
     border: none;
+}
+
+.info-tab .task-details {
+    margin: 0;
+    padding: 20px 0 0;
+    list-style-type: none;
+    word-break: break-word;
+}
+
+.info-tab .task-details li {
+    margin-bottom: 20px;
 }
