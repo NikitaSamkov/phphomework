@@ -3,11 +3,14 @@ function formatDate (date) {
     return ruDateFormat(date);
 }
 
-let infoTab = document.querySelector('.info-tab');
 let tasks = document.querySelectorAll('.task');
 let taskList = document.querySelector('.tasks');
+
+let infoTab = document.querySelector('.info-tab');
 let infoTabClose = infoTab.querySelector('.close-btn');
 let taskDetails = infoTab.querySelector('.task-details').querySelectorAll('li');
+let deleteButton = infoTab.querySelector('.delete-btn');
+let editButton = infoTab.querySelector('.edit-btn');
 
 let taskNameMaxChars = 30;
 let taskDescMaxChars = 80;
@@ -24,6 +27,7 @@ for(let task of tasks) {
     task.onclick = function () {
         infoTab.classList.remove('hidden');
         taskList.style.width = '70%';
+
         for(let detail of taskDetails) {
             let content = detail.querySelector('.content');
 
@@ -68,6 +72,17 @@ for(let task of tasks) {
                 default:
                     content.textContent = 'НЕ НАЙДЕНО :(';
                     break;
+            }
+            if (userData !== false && (tasksData[task.id]['admin_id'] === userData['id'] || tasksData[task.id]['worker_id'] === userData['id'])) {
+                editButton.classList.remove('hidden');
+            } else {
+                editButton.classList.add('hidden');
+            }
+
+            if (userData !== false && tasksData[task.id]['admin_id'] === userData['id']) {
+                deleteButton.classList.remove('hidden');
+            } else {
+                deleteButton.classList.add('hidden');
             }
 
         }

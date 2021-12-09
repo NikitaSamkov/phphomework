@@ -82,6 +82,10 @@ $tasks = $conn->Query($query, PDO::FETCH_UNIQUE);
                     <div class="content"></div>
                 </li>
             </ul>
+            <div class="info-tab-buttons">
+                <button class="info-tab-btn edit-btn">Редактировать</button>
+                <button class="info-tab-btn delete-btn">Удалить</button>
+            </div>
         </div>
         <button class="close-btn"><img width="40" src="source/img/Cross.svg"></button>
     </div>
@@ -89,6 +93,14 @@ $tasks = $conn->Query($query, PDO::FETCH_UNIQUE);
 
 <script>
     let tasksData = <?php echo json_encode($tasks); ?>;
+    let userData =
+        <?php
+            if (isset($_SESSION['user'])) {
+                echo json_encode($_SESSION['user']);
+            } else {
+                echo 'false';
+            }
+        ?>;
 </script>
 <script src="info-tab.js"></script>
 </body>
