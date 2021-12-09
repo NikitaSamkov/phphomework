@@ -42,6 +42,12 @@ header {
     color: black;
 }
 
+.auth-menu .profile {
+    display: flex;
+    align-items: center;
+    margin-right: 20px;
+}
+
 header a {
     text-decoration: none;
     color: inherit;

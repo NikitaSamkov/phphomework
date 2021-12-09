@@ -25,7 +25,7 @@ $tasks = $conn->QueryGet($query, PDO::FETCH_UNIQUE);
     <img class="logo" src="source/img/logo.png">
     <div class="auth-menu">
         <?php if(isset($_SESSION['user'])): ?>
-            <p>Здравствуйте, <?=$_SESSION['user']['firstname']?></p>
+            <a class="profile" href="data/edit_profile.php"> <img height="25" src="source/img/User.svg"> <?=$_SESSION['user']['firstname']?></a>
             <a href="auth/SignOut.php"><div class="auth-btn">Выйти</div></a>
         <?php else: ?>
             <a href="auth/login.php"><div class="auth-btn">Войти</div></a>
