@@ -14,20 +14,25 @@ class DBConnection
         }
     }
 
-    public function Query($query, $mode=PDO::FETCH_ASSOC)
+    public function Query($query)
     {
-        return $this->connection->query($query)->fetchAll($mode);
+        return $this->connection->query($query);
+    }
+
+    public function QueryGet($query, $mode=PDO::FETCH_ASSOC)
+    {
+        return $this->Query($query)->fetchAll($mode);
     }
 
     public function GetTable($table)
     {
-        return $this->Query("SELECT * FROM $table");
+        return $this->QueryGet("SELECT * FROM $table");
     }
 
     public function GetOrdered($table, $column, $descending=false)
     {
         $mode = $descending ? 'DESC' : '';
-        return $this->Query("SELECT * FROM $table ORDER BY $column $mode");
+        return $this->QueryGet("SELECT * FROM $table ORDER BY $column $mode");
     }
 
     public function IsExists($table, $column, $value)
@@ -44,11 +49,11 @@ class DBConnection
         if(gettype($targetColumns) == 'array') {
             $columns = implode(', ', $targetColumns);
         }
-        $result = $this->Query("SELECT $columns FROM $table WHERE $column='$value'");
+        $result = $this->QueryGet("SELECT $columns FROM $table WHERE $column='$value'");
         return $result;
     }
 
     public function GetRow($table, $column, $value) {
-        return $this->Query("SELECT * FROM $table WHERE $column='$value' LIMIT 1");
+        return $this->QueryGet("SELECT * FROM $table WHERE $column='$value' LIMIT 1");
     }
 }

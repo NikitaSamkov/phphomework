@@ -7,7 +7,7 @@ $query = "SELECT tasks.*, w.login as w_login, w.firstname as w_fn, w.lastname as
     INNER JOIN users w on tasks.worker_id = w.id 
     INNER JOIN users a on tasks.admin_id = a.id
     ORDER BY created_at DESC";
-$tasks = $conn->Query($query, PDO::FETCH_UNIQUE);
+$tasks = $conn->QueryGet($query, PDO::FETCH_UNIQUE);
 ?>
 
 <!DOCTYPE html>

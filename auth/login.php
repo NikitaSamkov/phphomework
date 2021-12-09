@@ -1,12 +1,5 @@
 <?php
 session_start();
-
-if (isset($_SESSION['login-errors'])) {
-    foreach ($_SESSION['login-errors'] as $error) {
-        echo $error."<br>";
-    }
-    unset($_SESSION['login-errors']);
-}
 ?>
 <!DOCTYPE html>
 <html lang='ru'>
@@ -21,6 +14,18 @@ if (isset($_SESSION['login-errors'])) {
 <div class="auth">
     <?php require 'header.php'?>
     <form class="auth-form" action="SignIn.php" method="POST">
+        <?php if (isset($_SESSION['login-errors'])): ?>
+            <?php foreach($_SESSION['login-errors'] as $error): ?>
+                <div class="auth-error">
+                    <img src="../source/img/error.svg">
+                    <?=$error?>
+                </div>
+            <?php
+            endforeach;
+            unset($_SESSION['login-errors']);
+            ?>
+        <?php endif; ?>
+
         <label class="auth-input-field">
             Логин:<br>
             <input name="login" type="text" required><br>
