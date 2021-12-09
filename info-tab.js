@@ -9,8 +9,10 @@ let taskList = document.querySelector('.tasks');
 let infoTab = document.querySelector('.info-tab');
 let infoTabClose = infoTab.querySelector('.close-btn');
 let taskDetails = infoTab.querySelector('.task-details').querySelectorAll('li');
-let deleteButton = infoTab.querySelector('.delete-btn');
-let editButton = infoTab.querySelector('.edit-btn');
+let infoTabButtons = infoTab.querySelector('.info-tab-buttons');
+let deleteButton = infoTabButtons.querySelector('.delete-btn');
+let editButton = infoTabButtons.querySelector('.edit-btn');
+let confirmation = infoTab.querySelector('.info-tab-delete-confirmation');
 
 let taskNameMaxChars = 30;
 let taskDescMaxChars = 80;
@@ -92,4 +94,23 @@ for(let task of tasks) {
 infoTabClose.onclick = function () {
     infoTab.classList.add('hidden');
     taskList.style.width = '100%';
+}
+
+deleteButton.onclick = function () {
+    confirmation.classList.remove('hidden');
+    infoTabButtons.classList.add('hidden');
+}
+
+confirmation.querySelector('.no-btn').onclick = function () {
+    infoTabButtons.classList.remove('hidden');
+    confirmation.classList.add('hidden');
+}
+
+confirmation.querySelector('.yes-btn').onclick = function () {
+    //not implemented
+    location.reload();
+}
+
+editButton.onclick = function () {
+    //not implemented
 }

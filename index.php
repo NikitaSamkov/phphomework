@@ -86,7 +86,7 @@ $tasks = $conn->Query($query, PDO::FETCH_UNIQUE);
                 <button class="info-tab-btn edit-btn">Редактировать</button>
                 <button class="info-tab-btn delete-btn">Удалить</button>
             </div>
-            <div class="info-tab-delete-confirmation">
+            <div class="info-tab-delete-confirmation hidden">
                 Вы уверены? <br>
                 <div class="delete-confirmation-buttons">
                     <button class="info-tab-btn yes-btn">Да</button>
