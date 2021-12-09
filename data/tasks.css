@@ -7,6 +7,8 @@
 }
 
 .task,
+.info-tab-btn,
+.info-tab-delete-confirmation,
 .task-details {
     font-size: 20px;
     font-family: Consolas, serif;
@@ -70,7 +72,8 @@
 }
 
 .info-tab-buttons,
-.info-tab-content {
+.info-tab-content,
+.delete-confirmation-buttons {
     display: flex;
     align-items: flex-start;
 }
@@ -95,7 +98,7 @@
 }
 
 .info-tab .task-details {
-    margin: 0;
+    padding: 0;
     list-style-type: none;
     word-break: break-word;
 }
@@ -108,5 +111,42 @@
     border: 3px solid #CECECE;
     border-radius: 15px;
     text-align: center;
+    max-width: 270px;
 }
 
+.info-tab-buttons,
+.delete-confirmation-buttons{
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.info-tab-buttons,
+.info-tab-delete-confirmation {
+    max-width: 300px;
+}
+
+.info-tab-btn {
+    padding: 5px 10px;
+    border-radius: 15px;
+    margin-bottom: 10px;
+}
+.no-btn,
+.edit-btn {
+    border: 3px solid #787878;
+    background-color: #CECECE;
+}
+.yes-btn,
+.delete-btn {
+    border: 3px solid #FF0000;
+    background-color: #FFBDBD;
+}
+
+.info-tab-delete-confirmation {
+    text-align: center;
+}
+
+.yes-btn,
+.no-btn {
+    padding: 5px 0;
+    width: 100px;
+}
