@@ -30,8 +30,6 @@ session_start();
             ?>
         <?php endif; ?>
 
-
-
         <label class="auth-input-field">
             Email:<br>
             <input type="email" name="email" id="email" value="<?=$_SESSION['user']['email']?>" placeholder="<?=$_SESSION['user']['email']?>" required><br>
@@ -61,8 +59,24 @@ session_start();
         <button class="submit-btn" name="submit" type="submit" value="">
             <img height="50" src="../source/img/Check.svg">
         </button>
+
+        <div class="delete-profile">
+            <a href="#">Удалить профиль</a>
+            <div class="delete-confirmation hidden">
+                <p>
+                    Вы уверены? <br>
+                    Это действие нельзя будет отменить <br>
+                </p>
+                <div class="delete-confirmation-buttons">
+                    <button type="button" class="yes-btn">Да</button>
+                    <button type="button" class="no-btn">Нет</button>
+                </div>
+            </div>
+        </div>
     </form>
 </div>
+
+<script src="delete-profile.js"></script>
 </body>
 
 </html>

@@ -58,4 +58,9 @@ class DBConnection
     public function GetRow($table, $column, $value) {
         return $this->QueryGet("SELECT * FROM $table WHERE $column='$value' LIMIT 1");
     }
+
+    public function DeleteRow($table, $column, $value) {
+        $query = "DELETE FROM $table WHERE $column=$value";
+        $this->Query($query);
+    }
 }

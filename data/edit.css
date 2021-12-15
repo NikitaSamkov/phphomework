@@ -1,3 +1,48 @@
 .auth-form p {
     margin: 0 0 20px 0;
 }
+
+.auth-form {
+    margin-bottom: 20px;
+}
+
+.submit-btn {
+    margin-bottom: 20px;
+}
+
+.delete-profile .delete-confirmation {
+    text-align: center;
+    font-size: 25px;
+}
+
+.delete-profile a {
+    color: #FF0000;
+}
+
+.delete-confirmation-buttons button {
+    padding: 5px 10px;
+    border-radius: 15px;
+    margin-bottom: 10px;
+    font-size: 20px;
+    font-family: Consolas, serif;
+}
+
+.yes-btn,
+.no-btn {
+    padding: 5px 0;
+    width: 100px;
+}
+
+.no-btn {
+    border: 3px solid #787878;
+    background-color: #CECECE;
+}
+
+.yes-btn {
+    border: 3px solid #FF0000;
+    background-color: #FFBDBD;
+}
+
+.hidden {
+    display: none;
+}
