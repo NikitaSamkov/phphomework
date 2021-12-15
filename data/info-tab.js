@@ -29,9 +29,11 @@ for(let task of tasks) {
     task.onclick = function () {
         infoTab.classList.remove('hidden');
         taskList.style.width = '70%';
-
+        infoTab.querySelector('.task-details').classList.remove('hidden');
         infoTabButtons.classList.remove('hidden');
         confirmation.classList.add('hidden');
+        infoTab.querySelector('.admin-edit').classList.add('hidden');
+        infoTab.querySelector('.admin-edit').classList.add('hidden');
         for(let detail of taskDetails) {
             let content = detail.querySelector('.content');
 
@@ -115,5 +117,11 @@ confirmation.querySelector('.yes-btn').onclick = function () {
 }
 
 editButton.onclick = function () {
-    //not implemented
+    infoTab.querySelector('.task-details').classList.add('hidden');
+    infoTab.querySelector('.info-tab-buttons').classList.add('hidden');
+    if (userData['administrator']) {
+        infoTab.querySelector('.admin-edit').classList.remove('hidden');
+    } else {
+        infoTab.querySelector('.worker-edit').classList.remove('hidden');
+    }
 }

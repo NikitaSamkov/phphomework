@@ -59,6 +59,12 @@
                     <button type="button" class="info-tab-btn no-btn">Нет</button>
                 </form>
             </div>
+            <div class="admin-edit hidden">
+                админ
+            </div>
+            <div class="worker-edit hidden">
+                воркер
+            </div>
         </div>
         <button class="close-btn"><img width="40" src="source/img/Cross.svg"></button>
     </div>
