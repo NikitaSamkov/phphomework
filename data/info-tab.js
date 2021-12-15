@@ -7,7 +7,6 @@ let tasks = document.querySelectorAll('.task');
 let taskList = document.querySelector('.tasks');
 
 let infoTab = document.querySelector('.info-tab');
-let infoTabClose = infoTab.querySelector('.close-btn');
 let taskDetails = infoTab.querySelector('.task-details').querySelectorAll('li');
 let editDetails = infoTab.querySelector('.task-details.edit');
 let infoTabButtons = infoTab.querySelector('.info-tab-buttons');
@@ -34,7 +33,8 @@ for(let task of tasks) {
         infoTabButtons.classList.remove('hidden');
         confirmation.classList.add('hidden');
         infoTab.querySelector('.admin-edit').classList.add('hidden');
-        infoTab.querySelector('.admin-edit').classList.add('hidden');
+        infoTab.querySelector('.worker-edit').classList.add('hidden');
+        infoTab.querySelector('form.edit').classList.add('hidden');
         for(let detail of taskDetails) {
             let content = detail.querySelector('.content');
 
@@ -104,7 +104,7 @@ for(let task of tasks) {
     }
 }
 
-infoTabClose.onclick = function () {
+infoTab.querySelector('.close-btn').onclick = function () {
     infoTab.classList.add('hidden');
     taskList.style.width = '100%';
 }
@@ -122,9 +122,18 @@ confirmation.querySelector('.no-btn').onclick = function () {
 editButton.onclick = function () {
     infoTab.querySelector('.task-details').classList.add('hidden');
     infoTab.querySelector('.info-tab-buttons').classList.add('hidden');
+    infoTab.querySelector('form.edit').classList.remove('hidden');
     if (userData['administrator']) {
         infoTab.querySelector('.admin-edit').classList.remove('hidden');
     } else {
         infoTab.querySelector('.worker-edit').classList.remove('hidden');
     }
+}
+
+infoTab.querySelector('.cancel-btn').onclick = function () {
+    infoTab.querySelector('.task-details').classList.remove('hidden');
+    infoTab.querySelector('.info-tab-buttons').classList.remove('hidden');
+    infoTab.querySelector('form.edit').classList.add('hidden');
+    infoTab.querySelector('.admin-edit').classList.add('hidden');
+    infoTab.querySelector('.worker-edit').classList.add('hidden');
 }

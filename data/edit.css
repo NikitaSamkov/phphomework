@@ -29,6 +29,7 @@
 
 .yes-btn,
 .no-btn {
+    cursor: pointer;
     padding: 5px 0;
     width: 100px;
 }

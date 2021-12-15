@@ -63,7 +63,7 @@ $workers = $conn->QueryGet("SELECT * FROM users WHERE administrator=0")
                     <button type="button" class="info-tab-btn no-btn">Нет</button>
                 </form>
             </div>
-            <form action="data/EditTask.php" method="post">
+            <form class="edit hidden" action="data/EditTask.php" method="post">
                 <div class="admin-edit hidden">
                     <ul class="task-details edit">
                         <li>
@@ -95,9 +95,17 @@ $workers = $conn->QueryGet("SELECT * FROM users WHERE administrator=0")
                 <div class="worker-edit hidden">
                     воркер
                 </div>
+                <div class="info-tab-buttons">
+                    <button class="submit-btn" name="submit" type="submit" value="">
+                        <img height="50" src="source/img/Check.svg">
+                    </button>
+                    <button class="cancel-btn" name="submit" type="button" value="">
+                        <img height="50" src="source/img/Cross-black.svg">
+                    </button>
+                </div>
             </form>
         </div>
-        <button class="close-btn"><img width="40" src="source/img/Cross.svg"></button>
+        <button class="close-btn"><img width="40" src="source/img/Cross-gray.svg"></button>
     </div>
 </div>
 
