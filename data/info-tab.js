@@ -41,6 +41,7 @@ for(let task of tasks) {
         infoTab.querySelector('.admin-edit').classList.add('hidden');
         infoTab.querySelector('.worker-edit').classList.add('hidden');
         infoTab.querySelector('form.edit').classList.add('hidden');
+        infoTab.querySelector('form.add').classList.add('hidden');
         for(let detail of taskDetails) {
             let content = detail.querySelector('.content');
 
@@ -147,4 +148,13 @@ infoTab.querySelector('.cancel-btn').onclick = function () {
     infoTab.querySelector('form.edit').classList.add('hidden');
     infoTab.querySelector('.admin-edit').classList.add('hidden');
     infoTab.querySelector('.worker-edit').classList.add('hidden');
+}
+
+document.querySelector('.add-btn').onclick = function () {
+    infoTab.classList.remove('hidden');
+    taskList.style.width = '70%';
+    infoTab.querySelector('.task-details').classList.add('hidden');
+    infoTab.querySelector('.info-tab-buttons').classList.add('hidden');
+    infoTab.querySelector('form.add').classList.remove('hidden');
+    infoTab.querySelector('form.edit').classList.add('hidden');
 }

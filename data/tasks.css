@@ -1,14 +1,23 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin-top: 210px;
+}
+
 .tasks {
     display: flex;
     flex-direction: column;
     flex-grow: 1;
-    margin-top: 210px;
     width: 100%;
 }
 
+.add,
 .edit input,
 .edit textarea,
 .edit select,
+.add-btn,
 .task,
 .info-tab-btn,
 .info-tab-delete-confirmation,
@@ -19,6 +28,20 @@
     font-family: Consolas, serif;
 }
 
+.add-bth-box {
+    width: 100%;
+    padding: 0 20px;
+}
+
+button.add-btn {
+    justify-content: center;
+    width: 120px;
+    margin: 0 0 20px;
+    min-width: 0;
+    padding: 10px 20px;
+}
+
+.add-btn,
 .task {
     display: flex;
     justify-content: space-between;
@@ -34,8 +57,14 @@
     min-width: 700px;
 }
 
+.add-btn:hover,
 .task:hover {
     border: 5px solid black;
+    transition: 200ms;
+}
+
+.add-btn:not(:hover),
+.task:not(:hover) {
     transition: 200ms;
 }
 

@@ -65,7 +65,7 @@ $workers = $conn->QueryGet("SELECT * FROM users WHERE administrator=0")
             </div>
             <form class="edit hidden" action="data/EditTask.php" method="post">
                 <div class="admin-edit hidden">
-                    <?php require_once 'data/info-tab_add.php' ?>
+                    <?php require 'data/info-tab_add.php' ?>
                 </div>
                 <div class="worker-edit hidden">
                     <label>
@@ -75,6 +75,18 @@ $workers = $conn->QueryGet("SELECT * FROM users WHERE administrator=0")
                     <input type="range" min="0" max="100" value="0">
                 </div>
                 <input type="hidden" name="task-id" value="0">
+                <div class="info-tab-buttons">
+                    <button class="submit-btn" name="submit" type="submit" value="">
+                        <img height="50" src="source/img/Check.svg">
+                    </button>
+                    <button class="cancel-btn" name="submit" type="button" value="">
+                        <img height="50" src="source/img/Cross-black.svg">
+                    </button>
+                </div>
+            </form>
+            <form class="add" action="data/AddTask.php" method="post">
+                <h2>Создание новой задачи</h2>
+                <?php require 'data/info-tab_add.php'?>
                 <div class="info-tab-buttons">
                     <button class="submit-btn" name="submit" type="submit" value="">
                         <img height="50" src="source/img/Check.svg">

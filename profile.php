@@ -1,7 +1,11 @@
 <?php
 session_start();
 
-require 'data/DBConnection.php';
+if(!isset($_SESSION['user'])) {
+    header('Location: index.php');
+    exit();
+}
+require_once 'data/DBConnection.php';
 $conn = new DBConnection('phphomework', 'php_samkov');
 $userLogin = $_SESSION['user']['login'];
 $query = "SELECT tasks.*, w.login as w_login, w.firstname as w_fn, w.lastname as w_ln, a.login as a_login, a.firstname as a_fn, a.lastname as a_ln FROM tasks 
@@ -34,6 +38,12 @@ $tasks = $conn->QueryGet($query, PDO::FETCH_UNIQUE);
         <?php endif; ?>
     </div>
 </header>
+
+<?php if($_SESSION['user']['administrator'] == "1"): ?>
+    <div class="add-bth-box">
+        <button type="button" class="add-btn"><img src="source/img/Add.svg"></button>
+    </div>
+<?php endif; ?>
 
 <?php require_once 'tasks.php' ?>
 
