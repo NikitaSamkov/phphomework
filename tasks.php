@@ -65,44 +65,7 @@ $workers = $conn->QueryGet("SELECT * FROM users WHERE administrator=0")
             </div>
             <form class="edit hidden" action="data/EditTask.php" method="post">
                 <div class="admin-edit hidden">
-                    <ul class="task-details edit">
-                        <li>
-                            <label>
-                                <b>Название задачи:</b>
-                                <input type="text" name="task-name" value="" placeholder="">
-                            </label>
-                        </li>
-                        <li>
-                            <label>
-                                <b>Описание:</b>
-                                <textarea rows="3" name="task-desc"></textarea>
-                            </label>
-                        </li>
-                        <li>
-                            <b>Тип задания:</b> <br>
-                            <label class="edit-radio" for="public">
-                                <input type="radio" name="task-type" id="public" value="public">
-                                Публичное (видят все пользователи) <br>
-                            </label>
-                            <label class="edit-radio" for="private">
-                                <input type="radio" name="task-type" id="private" value="private">
-                                Приватное (видит только сотрудник и назначивший администратор) <br>
-                            </label>
-                        </li>
-                        <li>
-                            <label>
-                                <b>Сотрудник:</b>
-                                <select name="worker">
-                                        <option value="0" selected>- Не выбран -</option>
-                                    <?php foreach ($workers as $worker): ?>
-                                        <option value="<?=$worker['id']?>">
-                                            <?=$worker['login']." (".$worker['firstname']." ".$worker['lastname'].")"?>
-                                        </option>
-                                    <?php endforeach; ?>
-                                </select>
-                            </label>
-                        </li>
-                    </ul>
+                    <?php require_once 'data/info-tab_add.php' ?>
                 </div>
                 <div class="worker-edit hidden">
                     <label>

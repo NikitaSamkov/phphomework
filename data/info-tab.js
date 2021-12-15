@@ -17,6 +17,12 @@ let confirmation = infoTab.querySelector('.info-tab-delete-confirmation');
 let taskNameMaxChars = 30;
 let taskDescMaxChars = 80;
 
+let noWorker = document.createElement('option');
+noWorker.value = "0";
+noWorker.selected = true;
+noWorker.innerText = '- Не выбран -';
+infoTab.querySelector('.admin-edit select').prepend(noWorker);
+
 for(let task of tasks) {
     let name = task.querySelector('.task-name');
     let desc = task.querySelector('.task-description');
