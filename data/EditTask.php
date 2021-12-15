@@ -13,8 +13,11 @@ if (isset($_POST['submit'])) {
     if (isset($_POST['task-type'])) {
         $values['type'] = [$_POST['task-type'], true];
     }
-    if (isset($_POST['worker'])) {
+    if (isset($_POST['worker']) && $_POST['worker'] != 0) {
         $values['worker_id'] = $_POST['worker'];
+    }
+    if (isset($_POST['progress']) && $_POST['progress']) {
+        $values['status'] = $_POST['progress'];
     }
 
     $conn->UpdateRow('tasks', $values, 'id', $_POST['task-id']);

@@ -191,6 +191,14 @@
     border: 2px solid #FFE600;
 }
 
+.edit input[type='range'] {
+    width: 80%;
+}
+
+.edit input[type='number'] {
+     width: 70px;
+ }
+
 .cancel-btn,
 .submit-btn {
     width: 40%;

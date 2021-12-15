@@ -124,11 +124,15 @@ editButton.onclick = function () {
     infoTab.querySelector('.task-details').classList.add('hidden');
     infoTab.querySelector('.info-tab-buttons').classList.add('hidden');
     infoTab.querySelector('form.edit').classList.remove('hidden');
-    if (userData['administrator']) {
+    if (userData['administrator'] === "1") {
         infoTab.querySelector('.admin-edit').classList.remove('hidden');
     } else {
         infoTab.querySelector('.worker-edit').classList.remove('hidden');
     }
+}
+
+infoTab.querySelector(".edit input[type='range']").oninput = function () {
+    infoTab.querySelector(".edit input[type='number']").value = infoTab.querySelector(".edit input[type='range']").value;
 }
 
 infoTab.querySelector('.cancel-btn').onclick = function () {

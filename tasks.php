@@ -93,6 +93,7 @@ $workers = $conn->QueryGet("SELECT * FROM users WHERE administrator=0")
                             <label>
                                 <b>Сотрудник:</b>
                                 <select name="worker">
+                                        <option value="0" selected>- Не выбран -</option>
                                     <?php foreach ($workers as $worker): ?>
                                         <option value="<?=$worker['id']?>">
                                             <?=$worker['login']." (".$worker['firstname']." ".$worker['lastname'].")"?>
@@ -104,7 +105,11 @@ $workers = $conn->QueryGet("SELECT * FROM users WHERE administrator=0")
                     </ul>
                 </div>
                 <div class="worker-edit hidden">
-                    воркер
+                    <label>
+                        <b>Прогресс:</b>
+                        <input name="progress" type="number" min="0" max="100">%
+                    </label>
+                    <input type="range" min="0" max="100" value="0">
                 </div>
                 <input type="hidden" name="task-id" value="0">
                 <div class="info-tab-buttons">
