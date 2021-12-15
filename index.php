@@ -6,6 +6,7 @@ $conn = new DBConnection('phphomework', 'php_samkov');
 $query = "SELECT tasks.*, w.login as w_login, w.firstname as w_fn, w.lastname as w_ln, a.login as a_login, a.firstname as a_fn, a.lastname as a_ln FROM tasks 
     INNER JOIN users w on tasks.worker_id = w.id 
     INNER JOIN users a on tasks.admin_id = a.id
+    WHERE tasks.type='public'
     ORDER BY created_at DESC";
 $tasks = $conn->QueryGet($query, PDO::FETCH_UNIQUE);
 ?>
