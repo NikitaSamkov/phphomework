@@ -18,6 +18,11 @@ if (isset($_POST['submit'])) {
     }
     if (isset($_POST['progress']) && $_POST['progress']) {
         $values['status'] = $_POST['progress'];
+        if ($_POST['progress'] == 100) {
+            $values['finished_at'] = [date("Y-m-d H:i:s"), true];
+        } else {
+            $values['finished_at'] = ['NULL', false];
+        }
     }
 
     $conn->UpdateRow('tasks', $values, 'id', $_POST['task-id']);
