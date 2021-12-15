@@ -1,3 +1,7 @@
+<?php
+$workers = $conn->QueryGet("SELECT * FROM users WHERE administrator=0")
+?>
+
 <main>
     <div class="tasks">
         <?php foreach ($tasks as $id => $task): ?>
@@ -59,12 +63,34 @@
                     <button type="button" class="info-tab-btn no-btn">Нет</button>
                 </form>
             </div>
-            <div class="admin-edit hidden">
-                админ
-            </div>
-            <div class="worker-edit hidden">
-                воркер
-            </div>
+            <form action="data/EditTask.php" method="post">
+                <div class="admin-edit hidden">
+                    <ul class="task-details edit">
+                        <li>
+                            <label>
+                                <input type="text" name="task-name" value="" placeholder="">
+                            </label>
+                        </li>
+                        <li>
+                            <label>
+                                <textarea name="task-desc"></textarea>
+                            </label>
+                        </li>
+                        <li>
+                            <label>
+                                <select name="worker">
+                                    <?php foreach ($workers as $worker): ?>
+                                        <option value="<?=$worker['id']?>"><?=$worker['login']." (".$worker['firstname']." ".$worker['lastname'].")"?></option>
+                                    <?php endforeach; ?>
+                                </select>
+                            </label>
+                        </li>
+                    </ul>
+                </div>
+                <div class="worker-edit hidden">
+                    воркер
+                </div>
+            </form>
         </div>
         <button class="close-btn"><img width="40" src="source/img/Cross.svg"></button>
     </div>

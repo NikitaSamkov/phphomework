@@ -9,6 +9,7 @@ let taskList = document.querySelector('.tasks');
 let infoTab = document.querySelector('.info-tab');
 let infoTabClose = infoTab.querySelector('.close-btn');
 let taskDetails = infoTab.querySelector('.task-details').querySelectorAll('li');
+let editDetails = infoTab.querySelector('.task-details.edit');
 let infoTabButtons = infoTab.querySelector('.info-tab-buttons');
 let deleteButton = infoTabButtons.querySelector('.delete-btn');
 let editButton = infoTabButtons.querySelector('.edit-btn');
@@ -93,6 +94,13 @@ for(let task of tasks) {
 
         }
         infoTab.querySelector('.task-id-input').value = task.id;
+
+        let name = editDetails.querySelector('input');
+        name.value = tasksData[task.id]['task_name'];
+        name.placeholder = tasksData[task.id]['task_name'];
+        let taskDesc = editDetails.querySelector('textarea');
+        taskDesc.placeholder = tasksData[task.id]['task_desc'];
+        taskDesc.textContent = tasksData[task.id]['task_desc'];
     }
 }
 
@@ -109,11 +117,6 @@ deleteButton.onclick = function () {
 confirmation.querySelector('.no-btn').onclick = function () {
     infoTabButtons.classList.remove('hidden');
     confirmation.classList.add('hidden');
-}
-
-confirmation.querySelector('.yes-btn').onclick = function () {
-    //not implemented
-    location.reload();
 }
 
 editButton.onclick = function () {
