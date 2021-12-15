@@ -32,6 +32,7 @@ for(let task of tasks) {
     if (desc.textContent.length >= taskDescMaxChars) {
         desc.textContent = desc.textContent.substr(0, taskDescMaxChars - 3) + '...';
     }
+
     task.onclick = function () {
         infoTab.classList.remove('hidden');
         taskList.style.width = '70%';
@@ -62,8 +63,8 @@ for(let task of tasks) {
                         status = 'Готово'
                     }
                     content.textContent = status + ' (' + progress + '%)';
-                    let green = 255 * (parseInt(progress / 51) * (1 - progress / 50) + progress / 50)
-                    let red = 255 * (1 - (progress - 50) / 50 * parseInt(progress / 51))
+                    let green = 255 * (parseInt(progress / 51) * (1 - progress / 50) + progress / 50);
+                    let red = 255 * (1 - (progress - 50) / 50 * parseInt(progress / 51));
                     content.style.backgroundColor = 'rgb(' + red + ',' + green + ',0)';
                     break;
                 case 'worker':

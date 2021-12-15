@@ -39,8 +39,16 @@ if(isset($_POST['submit'])) {
     if(count($err) == 0) {
         $admin = $_POST['admin'] == 'on' ? 'TRUE' : 'FALSE';
         $password = password_hash(trim($_POST['password']), PASSWORD_DEFAULT);
-        $query = "INSERT INTO users VALUES (NULL, '$login', '$email', '$password', '$firstname', '$lastname', $admin)";
-        $conn->QueryGet($query);
+        $values = array(
+            'NULL',
+            [$login, true],
+            [$email, true],
+            [$password, true],
+            [$firstname, true],
+            [$lastname, true],
+            $admin
+        );
+        $conn->AddRow('users', $values);
         $_SESSION['user'] = $conn->GetRow('users', 'login', $login)[0];
         header("Location: ../index.php");
         exit();

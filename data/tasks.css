@@ -200,8 +200,7 @@ button.add-btn {
     padding: 5px;
 }
 
-.edit input#public,
-.edit input#private {
+.edit input[type='radio'] {
     width: auto;
 }
 
