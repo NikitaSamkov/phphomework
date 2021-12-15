@@ -14,9 +14,11 @@ class DBConnection
         }
     }
 
-    public function Query($query)
+    public function Query($query): bool|PDOStatement
     {
-        return $this->connection->query($query);
+        $stmt = $this->connection->prepare($query);
+        $stmt->execute();
+        return $stmt;
     }
 
     public function QueryGet($query, $mode=PDO::FETCH_ASSOC)
