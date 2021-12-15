@@ -59,7 +59,7 @@
                 </div>
             </div>
         </div>
-        <button class="close-btn"><img width="40" src="source/img/Cross.svg"></button>
+        <button class="close-btn"><img width="40" src="../source/img/Cross.svg"></button>
     </div>
 </div>
 
@@ -74,4 +74,4 @@
         }
         ?>;
 </script>
-<script src="info-tab.js"></script>
+<script src="../info-tab.js"></script>
