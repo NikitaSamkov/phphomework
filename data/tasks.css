@@ -161,7 +161,8 @@
 
 .edit input,
 .edit textarea,
-.edit select {
+.edit select,
+.edit-radio {
     width: 100%;
     background-color: #F2F2F2;
     border: 2px solid #000000;
@@ -170,8 +171,24 @@
     padding: 5px;
 }
 
+.edit input#public,
+.edit input#private {
+    width: auto;
+}
+
 .edit .info-tab-buttons {
     justify-content: flex-start;
+}
+
+.edit-radio {
+    display: block;
+    border: 2px solid #787878;
+    margin-bottom: 5px;
+}
+
+.edit-radio:hover {
+    background-color: #fff4ad;
+    border: 2px solid #FFE600;
 }
 
 .cancel-btn,

@@ -59,8 +59,22 @@ class DBConnection
         return $this->QueryGet("SELECT * FROM $table WHERE $column='$value' LIMIT 1");
     }
 
-    public function DeleteRow($table, $column, $value) {
+    public function DeleteRow($table, $column, $value)
+    {
         $query = "DELETE FROM $table WHERE $column=$value";
+        $this->Query($query);
+    }
+
+    public function UpdateRow($table, $updValues, $column, $value)
+    {
+        $values = array();
+        foreach ($updValues as $key => $updValue) {
+            $val = (gettype($updValue) == "array") ? ((isset($updValue[1]) && $updValue[1]) ? "'$updValue[0]'" : $updValue[0]) : $updValue;
+            $values[] = "$key=$val";
+        }
+        $values = join(', ', $values);
+        $query = "UPDATE $table SET $values WHERE $column=$value";
+        print_r($query);
         $this->Query($query);
     }
 }

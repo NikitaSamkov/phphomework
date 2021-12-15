@@ -1,10 +1,10 @@
 <?php
 session_start();
 
-require '../data/DBConnection.php';
-$conn = new DBConnection('phphomework', 'php_samkov');
 
 if(isset($_POST['submit'])) {
+    require_once '../data/DBConnection.php';
+    $conn = new DBConnection('phphomework', 'php_samkov');
     $login = trim($_POST['login']);
     $email = trim($_POST['email']);
     $firstname = trim($_POST['firstname']);

@@ -58,7 +58,7 @@ $workers = $conn->QueryGet("SELECT * FROM users WHERE administrator=0")
             <div class="info-tab-delete-confirmation hidden">
                 Вы уверены? <br>
                 <form action="data/DeleteTask.php" method="post" class="delete-confirmation-buttons">
-                    <input class="task-id-input" type="hidden" name="task-id" value="0">
+                    <input class="task-id-delete" type="hidden" name="task-id" value="0">
                     <button type="submit" class="info-tab-btn yes-btn">Да</button>
                     <button type="button" class="info-tab-btn no-btn">Нет</button>
                 </form>
@@ -79,6 +79,17 @@ $workers = $conn->QueryGet("SELECT * FROM users WHERE administrator=0")
                             </label>
                         </li>
                         <li>
+                            <b>Тип задания:</b> <br>
+                            <label class="edit-radio" for="public">
+                                <input type="radio" name="task-type" id="public" value="public">
+                                Публичное (видят все пользователи) <br>
+                            </label>
+                            <label class="edit-radio" for="private">
+                                <input type="radio" name="task-type" id="private" value="private">
+                                Приватное (видит только сотрудник и назначивший администратор) <br>
+                            </label>
+                        </li>
+                        <li>
                             <label>
                                 <b>Сотрудник:</b>
                                 <select name="worker">
@@ -95,6 +106,7 @@ $workers = $conn->QueryGet("SELECT * FROM users WHERE administrator=0")
                 <div class="worker-edit hidden">
                     воркер
                 </div>
+                <input type="hidden" name="task-id" value="0">
                 <div class="info-tab-buttons">
                     <button class="submit-btn" name="submit" type="submit" value="">
                         <img height="50" src="source/img/Check.svg">

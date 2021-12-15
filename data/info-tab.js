@@ -93,7 +93,7 @@ for(let task of tasks) {
             }
 
         }
-        infoTab.querySelector('.task-id-input').value = task.id;
+        infoTab.querySelector('.task-id-delete').value = task.id;
 
         let name = editDetails.querySelector('input');
         name.value = tasksData[task.id]['task_name'];
@@ -101,6 +101,7 @@ for(let task of tasks) {
         let taskDesc = editDetails.querySelector('textarea');
         taskDesc.placeholder = tasksData[task.id]['task_desc'];
         taskDesc.textContent = tasksData[task.id]['task_desc'];
+        infoTab.querySelector("form.edit input[type='hidden']").value = task.id;
     }
 }
 
