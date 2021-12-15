@@ -30,6 +30,8 @@ for(let task of tasks) {
         infoTab.classList.remove('hidden');
         taskList.style.width = '70%';
 
+        infoTabButtons.classList.remove('hidden');
+        confirmation.classList.add('hidden');
         for(let detail of taskDetails) {
             let content = detail.querySelector('.content');
 
@@ -88,6 +90,7 @@ for(let task of tasks) {
             }
 
         }
+        infoTab.querySelector('.task-id-input').value = task.id;
     }
 }
 

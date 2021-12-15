@@ -53,10 +53,11 @@
             </div>
             <div class="info-tab-delete-confirmation hidden">
                 Вы уверены? <br>
-                <div class="delete-confirmation-buttons">
-                    <button class="info-tab-btn yes-btn">Да</button>
-                    <button class="info-tab-btn no-btn">Нет</button>
-                </div>
+                <form action="data/DeleteTask.php" method="post" class="delete-confirmation-buttons">
+                    <input class="task-id-input" type="hidden" name="task-id" value="0">
+                    <button type="submit" class="info-tab-btn yes-btn">Да</button>
+                    <button type="button" class="info-tab-btn no-btn">Нет</button>
+                </form>
             </div>
         </div>
         <button class="close-btn"><img width="40" src="source/img/Cross.svg"></button>
