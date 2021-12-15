@@ -68,19 +68,24 @@ $workers = $conn->QueryGet("SELECT * FROM users WHERE administrator=0")
                     <ul class="task-details edit">
                         <li>
                             <label>
+                                <b>Название задачи:</b>
                                 <input type="text" name="task-name" value="" placeholder="">
                             </label>
                         </li>
                         <li>
                             <label>
-                                <textarea name="task-desc"></textarea>
+                                <b>Описание:</b>
+                                <textarea rows="3" name="task-desc"></textarea>
                             </label>
                         </li>
                         <li>
                             <label>
+                                <b>Сотрудник:</b>
                                 <select name="worker">
                                     <?php foreach ($workers as $worker): ?>
-                                        <option value="<?=$worker['id']?>"><?=$worker['login']." (".$worker['firstname']." ".$worker['lastname'].")"?></option>
+                                        <option value="<?=$worker['id']?>">
+                                            <?=$worker['login']." (".$worker['firstname']." ".$worker['lastname'].")"?>
+                                        </option>
                                     <?php endforeach; ?>
                                 </select>
                             </label>

@@ -6,6 +6,9 @@
     width: 100%;
 }
 
+.edit input,
+.edit textarea,
+.edit select,
 .task,
 .info-tab-btn,
 .info-tab-delete-confirmation,
@@ -133,11 +136,13 @@
     border-radius: 15px;
     margin-bottom: 10px;
 }
+
 .no-btn,
 .edit-btn {
     border: 3px solid #787878;
     background-color: #CECECE;
 }
+
 .yes-btn,
 .delete-btn {
     border: 3px solid #FF0000;
@@ -152,6 +157,17 @@
 .no-btn {
     padding: 5px 0;
     width: 100px;
+}
+
+.edit input,
+.edit textarea,
+.edit select {
+    width: 80%;
+    background-color: #F2F2F2;
+    border: 2px solid #000000;
+    box-sizing: border-box;
+    border-radius: 15px;
+    padding: 5px;
 }
 
 .hidden {
