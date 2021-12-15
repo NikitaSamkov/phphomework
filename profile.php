@@ -35,7 +35,7 @@ $tasks = $conn->QueryGet($query, PDO::FETCH_UNIQUE);
     </div>
 </header>
 
-<?php require_once 'data/tasks.php' ?>
+<?php require_once 'tasks.php' ?>
 
 </body>
 

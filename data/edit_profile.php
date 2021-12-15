@@ -76,7 +76,7 @@ session_start();
     </form>
 </div>
 
-<script src="delete-profile.js"></script>
+<script src="delete_profile.js"></script>
 </body>
 
 </html>

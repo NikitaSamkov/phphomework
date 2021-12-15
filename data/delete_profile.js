@@ -15,5 +15,5 @@ noButton.onclick = function () {
 }
 
 yesButton.onclick = function () {
-    window.location.href = 'Delete.php';
+    window.location.href = 'DeleteProfile.php';
 }
