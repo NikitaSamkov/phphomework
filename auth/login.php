@@ -27,7 +27,7 @@ session_start();
         <?php endif; ?>
 
         <label class="auth-input-field">
-            Логин:<br>
+            Логин или email:<br>
             <input name="login" type="text" required><br>
         </label>
         <label class="auth-input-field">

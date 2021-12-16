@@ -30,12 +30,8 @@ $tasks = $conn->QueryGet($query, PDO::FETCH_UNIQUE);
 <header>
     <a href="index.php"><img class="logo" src="source/img/logo.png"></a>
     <div class="auth-menu">
-        <?php if(isset($_SESSION['user'])): ?>
             <a class="profile auth-btn" href="data/edit_profile.php"> <img height="25" src="source/img/Edit.svg"> Редактировать профиль</a>
             <a href="auth/SignOut.php"><div class="auth-btn">Выйти</div></a>
-        <?php else: ?>
-            <a href="auth/login.php"><div class="auth-btn">Войти</div></a>
-        <?php endif; ?>
     </div>
 </header>
 

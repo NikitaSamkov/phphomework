@@ -68,6 +68,18 @@ button.add-btn {
     transition: 200ms;
 }
 
+.add-btn {
+    height: 55px;
+}
+
+.add-btn:hover::before {
+    content: "NEW"
+}
+
+.add-btn:hover img {
+    display: none;
+}
+
 .task-info {
     display: flex;
     flex-direction: column;
@@ -136,6 +148,15 @@ button.add-btn {
     padding: 0;
     list-style-type: none;
     word-break: break-word;
+}
+
+.task-details .content {
+    white-space: pre-wrap;
+}
+
+.task-details textarea {
+    max-width: 100%;
+    min-width: 100%;
 }
 
 .info-tab .task-details li {

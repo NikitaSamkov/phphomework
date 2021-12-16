@@ -5,9 +5,14 @@ require '../data/DBConnection.php';
 $conn = new DBConnection('phphomework', 'php_samkov');
 
 if(isset($_POST['submit'])) {
-    $data = $conn->GetColumns('users', array('id', 'password'), 'login', $_POST['login']);
-    if(count($data) > 0 and password_verify(trim($_POST['password']), $data[0]['password'])) {
-        $_SESSION['user'] = $conn->GetRow('users', 'id', $data[0]['id'])[0];
+    $dataLogin = $conn->GetColumns('users', array('id', 'password'), 'login', $_POST['login']);
+    $dataEmail = $conn->GetColumns('users', array('id', 'password'), 'email', $_POST['login']);
+    if (count($dataLogin) > 0 && password_verify(trim($_POST['password']), $dataLogin[0]['password'])) {
+        $_SESSION['user'] = $conn->GetRow('users', 'id', $dataLogin[0]['id'])[0];
+        header('Location: ../index.php');
+        exit();
+    } else if(count($dataEmail) > 0 && password_verify(trim($_POST['password']), $dataEmail[0]['password'])) {
+        $_SESSION['user'] = $conn->GetRow('users', 'id', $dataEmail[0]['id'])[0];
         header('Location: ../index.php');
         exit();
     }

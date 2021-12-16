@@ -70,7 +70,7 @@ $workers = $conn->QueryGet("SELECT * FROM users WHERE administrator=0")
                 <div class="worker-edit hidden">
                     <label>
                         <b>Прогресс:</b>
-                        <input name="progress" type="number" min="0" max="100">%
+                        <input name="progress" type="number" min="0" max="100"> %
                     </label>
                     <input type="range" min="0" max="100" value="0">
                 </div>

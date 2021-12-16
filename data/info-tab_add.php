@@ -14,7 +14,7 @@
     <li>
         <b>Тип задания:</b> <br>
         <label class="edit-radio">
-            <input type="radio" name="task-type" value="public">
+            <input type="radio" name="task-type" value="public" checked>
             Публичное (видят все пользователи) <br>
         </label>
         <label class="edit-radio">
